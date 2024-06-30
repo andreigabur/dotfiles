@@ -2,13 +2,17 @@
 
 ## Tools to install
 
+- Warp Terminal https://www.warp.dev/ 
+
+- Starship prompt https://starship.rs/ 
+
 - brew install lazygit
 
 ## Bare repository for dotfiles
 
 ### create bare repository
     git init --bare $HOME/.dotfiles
-    
+
 ### set alias for bare get in .zshrc file
     echo 'alias dot="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME"' >> $HOME/.zshrc
 
