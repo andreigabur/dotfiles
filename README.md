@@ -3,12 +3,14 @@
 ## Tools to install
 
 - Warp Terminal https://www.warp.dev/ 
+- Lazygit `brew install lazygit`
 
-- Starship prompt https://starship.rs/ 
+## Create symbolic links
 
-- brew install lazygit
+    ln -s ~/dotfiles/.zshrc ~/.zshrc
+    ln -s ~/dotfiles/.config/nvim ~/.config/nvim
 
-## Bare repository for dotfiles
+## How to use bare repository for dotfiles
 
 ### create bare repository
     git init --bare $HOME/.dotfiles

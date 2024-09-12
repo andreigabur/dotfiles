@@ -17,9 +17,12 @@ opt.smartcase = true -- assume case-sensitive when mixed case used
 
 opt.cursorline = true
 
---clipboard
+-- clipboard
 opt.clipboard:append("unnamedplus") -- use system clipboard as default
 
---split windows
+-- split windows
 opt.splitright = true
 opt.splitbelow = true
+
+-- keymaps
+vim.g.mapleader = " "
