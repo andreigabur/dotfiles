@@ -1,3 +1,9 @@
+platform="Linux" 
+
+if [ "$(uname)" = "Darwin" ]; then
+    platform="Darwin"
+fi
+
 # Set up the prompt
 
 autoload -Uz promptinit
@@ -7,7 +13,7 @@ prompt adam1
 setopt histignorealldups sharehistory
 
 # Use emacs keybindings even if our EDITOR is set to vi
-bindkey -e
+# bindkey -e
 
 # Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
 HISTSIZE=1000
@@ -18,12 +24,15 @@ HISTFILE=~/.zsh_history
 autoload -Uz compinit
 compinit
 
+if [ platform = "Linux" ]; then
+  eval "$(dircolors -b)"
+fi
+
 zstyle ':completion:*' auto-description 'specify: %d'
 zstyle ':completion:*' completer _expand _complete _correct _approximate
 zstyle ':completion:*' format 'Completing %d'
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' menu select=2
-eval "$(dircolors -b)"
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' list-colors ''
 zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
@@ -37,15 +46,23 @@ zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 # Load Homebrew
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+if [[ platform == "Linux" ]]; then
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
 
 # PATH
+
 ## Postgres installed with Brew 
-export PATH=$PATH:/home/linuxbrew/.linuxbrew/opt/postgresql@16/bin/
+[[ -d "/home/linuxbrew/.linuxbrew/opt/postgresql@16/bin/" ]] && \
+  export PATH=$PATH:/home/linuxbrew/.linuxbrew/opt/postgresql@16/bin/
+
 ## Go bins
-export PATH=$PATH:~/go/bin
+[[ -d "$HOME/go/bin" ]] && \
+  export PATH=$PATH:~/go/bin
+
 ## Rootline scripts
-export PATH=$PATH:~/Development/bin:~/Development/rootline/bin/dev
+[[ -d "$HOME/Development/" ]] && \
+  export PATH=$PATH:~/Development/bin:~/Development/rootline/bin/dev
 
 # Variables
 export EDITOR=nvim
@@ -57,6 +74,11 @@ alias vim="nvim"
 alias idea="(/home/andrei/Development/bin/ideaIU-2024.2/idea-IU-242.20224.300/bin/idea.sh > /dev/null 2>&1) &"
 alias vscode="code --ozone-platform=wayland"
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+# SDKMAN - THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+# NVM 
+[[ -d "/$HOME/.nvm" ]] && export NVM_DIR="$HOME/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
