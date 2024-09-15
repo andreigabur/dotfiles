@@ -1,6 +1,6 @@
 platform="Linux" 
 
-if [ "$(uname)" = "Darwin" ]; then
+if [[ "$(uname)" == "Darwin" ]]; then
     platform="Darwin"
 fi
 
@@ -24,7 +24,7 @@ HISTFILE=~/.zsh_history
 autoload -Uz compinit
 compinit
 
-if [ platform = "Linux" ]; then
+if [[ $platform == "Linux" ]]; then
   eval "$(dircolors -b)"
 fi
 
@@ -46,7 +46,8 @@ zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 # Load Homebrew
-if [[ platform == "Linux" ]]; then
+if [[ $platform == "Linux" ]]; then
+  echo "This is Linux"
   eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 
