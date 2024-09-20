@@ -4,12 +4,6 @@ if [[ "$(uname)" == "Darwin" ]]; then
     platform="Darwin"
 fi
 
-# Set up the prompt
-
-autoload -Uz promptinit
-promptinit
-prompt adam1
-
 setopt histignorealldups sharehistory
 
 # Use emacs keybindings even if our EDITOR is set to vi
@@ -47,11 +41,8 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 # Load Homebrew
 if [[ $platform == "Linux" ]]; then
-  echo "This is Linux"
   eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
-
-# PATH
 
 ## Postgres installed with Brew 
 [[ -d "/home/linuxbrew/.linuxbrew/opt/postgresql@16/bin/" ]] && \
@@ -74,6 +65,9 @@ alias la="eza -all -long --icons --group-directories-first"
 alias vim="nvim"
 alias idea="(/home/andrei/Development/bin/ideaIU-2024.2/idea-IU-242.20224.300/bin/idea.sh > /dev/null 2>&1) &"
 alias vscode="code --ozone-platform=wayland"
+
+# Starship
+eval "$(starship init zsh)"
 
 # SDKMAN - THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"

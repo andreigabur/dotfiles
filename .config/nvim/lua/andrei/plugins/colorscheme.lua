@@ -7,7 +7,7 @@ return {
       require("catppuccin").setup({
         -- transparent_background = true,
       })
-      vim.cmd("colorscheme catppuccin-latte")
+      -- vim.cmd("colorscheme catppuccin-latte")
     end,
   },
   {
@@ -18,7 +18,7 @@ return {
       require("dracula").setup({
         transparent_bg = true,
       })
-      -- vim.cmd("colorscheme dracula")
+      vim.cmd("colorscheme dracula")
     end,
   },
 }
