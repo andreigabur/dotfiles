@@ -2,13 +2,16 @@
 
 ## Tools to install
 
-- Warp Terminal https://www.warp.dev/ 
 - Lazygit `brew install lazygit`
 
 ## Create symbolic links
 
     ln -s ~/dotfiles/.zshrc ~/.zshrc
     ln -s ~/dotfiles/.config/nvim ~/.config/nvim
+    ln -s ~/dotfiles/.config/kitty ./kitty
+
+## set zsh as default shell
+`chsh -s $(which zsh)`
 
 ## How to use bare repository for dotfiles
 

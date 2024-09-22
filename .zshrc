@@ -1,73 +1,67 @@
-platform="Linux" 
-
-if [[ "$(uname)" == "Darwin" ]]; then
-    platform="Darwin"
-fi
-
+# Set history
 setopt histignorealldups sharehistory
 
-# Use emacs keybindings even if our EDITOR is set to vi
-# bindkey -e
-
-# Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
-HISTSIZE=1000
-SAVEHIST=1000
+## Keep 10000 lines of history within the shell and save it to ~/.zsh_history:
+HISTSIZE=10000
+SAVEHIST=10000
 HISTFILE=~/.zsh_history
 
+# ----------
 # Use modern completion system
 autoload -Uz compinit
 compinit
 
-if [[ $platform == "Linux" ]]; then
-  eval "$(dircolors -b)"
-fi
-
-zstyle ':completion:*' auto-description 'specify: %d'
+# Defining the completers
 zstyle ':completion:*' completer _expand _complete _correct _approximate
-zstyle ':completion:*' format 'Completing %d'
+# Use menu-based selection of completions
+zstyle ':completion:*' menu select
+# Group results
 zstyle ':completion:*' group-name ''
-zstyle ':completion:*' menu select=2
+# Case-insensitive completion
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+# Format the result
+zstyle ':completion:*:*:corrections' format '%F{yellow}-- %d (errors: %e) --%f'
+zstyle ':completion:*:*:warnings' format ' %F{red}-- no matches found --%f'
+zstyle ':completion:*:*:descriptions' format '%F{green}-- %d --%f'
+zstyle ':completion:*:messages' format '%F{blue}-- %d --%f'
+#Load colors
+[[ $(command -v dircolors) ]] &&
+  eval "$(dircolors -b)"
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
-zstyle ':completion:*' list-colors ''
-zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
-zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=* l:|=*'
-zstyle ':completion:*' menu select=long
-zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
+# Verbose mode
+zstyle ':completion:*' verbose yes
+# Auto descrition
+zstyle ':completion:*' auto-description 'specify: %d'
+# Do not fallback to compctl
 zstyle ':completion:*' use-compctl false
-zstyle ':completion:*' verbose true
-
+# Completion for kill
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
-# Load Homebrew
-if [[ $platform == "Linux" ]]; then
-  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-fi
-
-## Postgres installed with Brew 
-[[ -d "/home/linuxbrew/.linuxbrew/opt/postgresql@16/bin/" ]] && \
-  export PATH=$PATH:/home/linuxbrew/.linuxbrew/opt/postgresql@16/bin/
-
-## Go bins
-[[ -d "$HOME/go/bin" ]] && \
-  export PATH=$PATH:~/go/bin
-
-## Rootline scripts
-[[ -d "$HOME/Development/" ]] && \
-  export PATH=$PATH:~/Development/bin:~/Development/rootline/bin/dev
-
+# ----------
 # Variables
 export EDITOR=nvim
 
-# Aliases
-alias ll="eza --icons --group-directories-first"
-alias la="eza -all -long --icons --group-directories-first"
-alias vim="nvim"
-alias idea="(/home/andrei/Development/bin/ideaIU-2024.2/idea-IU-242.20224.300/bin/idea.sh > /dev/null 2>&1) &"
-alias vscode="code --ozone-platform=wayland"
+# ----------
+# Load Homebrew
+[[ -f "/home/linuxbrew/.linuxbrew/bin/brew" ]] &&
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+## Postgres installed with Brew 
+[[ -d "/home/linuxbrew/.linuxbrew/opt/postgresql@16/bin" ]] && \
+  export PATH=$PATH:/home/linuxbrew/.linuxbrew/opt/postgresql@16/bin/
+
+## Go bins
+[[ -d "$HOME/go/bin" ]] &&
+  export PATH=$PATH:~/go/bin
+
+## Rootline scripts
+[[ -d "$HOME/Development" ]] &&
+  export PATH=$PATH:~/Development/bin:~/Development/rootline/bin/dev
 
 # Starship
-eval "$(starship init zsh)"
+[[ $(command -v starship) ]] && 
+  eval "$(starship init zsh)"
 
 # SDKMAN - THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
@@ -77,3 +71,12 @@ export SDKMAN_DIR="$HOME/.sdkman"
 [[ -d "/$HOME/.nvm" ]] && export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
 [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
+
+# ----------
+# Aliases
+alias ll="eza --icons --group-directories-first"
+alias la="eza -all -long --icons --group-directories-first"
+alias vim="nvim"
+alias idea="(/home/andrei/Development/bin/ideaIU-2024.2/idea-IU-242.20224.300/bin/idea.sh > /dev/null 2>&1) &"
+alias vscode="code --ozone-platform=wayland"
+
