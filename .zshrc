@@ -26,8 +26,8 @@ zstyle ':completion:*:*:descriptions' format '%F{green}-- %d --%f'
 zstyle ':completion:*:messages' format '%F{blue}-- %d --%f'
 #Load colors
 [[ $(command -v dircolors) ]] &&
-  eval "$(dircolors -b)"
-zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+  eval "$(dircolors -b)" &&
+  zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 # Verbose mode
 zstyle ':completion:*' verbose yes
 # Auto descrition
@@ -47,8 +47,8 @@ export EDITOR=nvim
 [[ -f "/home/linuxbrew/.linuxbrew/bin/brew" ]] &&
   eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
-## Postgres installed with Brew 
-[[ -d "/home/linuxbrew/.linuxbrew/opt/postgresql@16/bin" ]] && \
+## Postgres installed with Brew
+[[ -d "/home/linuxbrew/.linuxbrew/opt/postgresql@16/bin" ]] &&
   export PATH=$PATH:/home/linuxbrew/.linuxbrew/opt/postgresql@16/bin/
 
 ## Go bins
@@ -60,14 +60,14 @@ export EDITOR=nvim
   export PATH=$PATH:~/Development/bin:~/Development/rootline/bin/dev
 
 # Starship
-[[ $(command -v starship) ]] && 
+[[ $(command -v starship) ]] &&
   eval "$(starship init zsh)"
 
 # SDKMAN - THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
-# NVM 
+# NVM
 [[ -d "/$HOME/.nvm" ]] && export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
 [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
@@ -84,3 +84,20 @@ alias vim="nvim"
 alias idea="(/home/andrei/Development/bin/ideaIU-2024.2/idea-IU-242.20224.300/bin/idea.sh > /dev/null 2>&1) &"
 alias vscode="code --ozone-platform=wayland"
 alias wezterm="flatpak run org.wezfurlong.wezterm"
+
+# Fzf for deploy.sh
+_fzf_complete_deploy() {
+  local -a completions
+  completions=($(command bazel query --keep_going --noshow_progress "kind('k8s_object', deps(//k8s/...))" 2>/dev/null | grep local.apply | sed 's/\/local.apply//'))
+
+  # Use fzf to select from completions
+  local selected
+  selected=$(printf '%s\n' "${completions[@]}" | fzf --height 50% --reverse)
+
+  # If something was selected, print it to stdout
+  if [[ -n $selected ]]; then
+    print -r -- "$selected"
+  fi
+}
+# Bind the function to the deploy command
+compdef _fzf_complete_deploy deploy.sh
