@@ -76,6 +76,10 @@ export SDKMAN_DIR="$HOME/.sdkman"
 # Aliases
 alias ll="eza --icons --group-directories-first"
 alias la="eza -all -long --icons --group-directories-first"
+# Search in directories
+alias fd="find . -type d -print | fzf"
+# Search with preview
+alias fz="find . -type f -print | fzf --preview=\"bat --color=always {}\""
 alias vim="nvim"
 alias idea="(/home/andrei/Development/bin/ideaIU-2024.2/idea-IU-242.20224.300/bin/idea.sh > /dev/null 2>&1) &"
 alias vscode="code --ozone-platform=wayland"
