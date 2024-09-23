@@ -6,7 +6,7 @@ HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=~/.zsh_history
 
-# ----------
+
 # Use modern completion system
 autoload -Uz compinit
 compinit
@@ -24,7 +24,7 @@ zstyle ':completion:*:*:corrections' format '%F{yellow}-- %d (errors: %e) --%f'
 zstyle ':completion:*:*:warnings' format ' %F{red}-- no matches found --%f'
 zstyle ':completion:*:*:descriptions' format '%F{green}-- %d --%f'
 zstyle ':completion:*:messages' format '%F{blue}-- %d --%f'
-#Load colors
+# Load colors
 [[ $(command -v dircolors) ]] &&
   eval "$(dircolors -b)" &&
   zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
@@ -38,7 +38,38 @@ zstyle ':completion:*' use-compctl false
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
-# ----------
+
+# Start typing + [Up-Arrow] - fuzzy find history forward
+autoload -U up-line-or-beginning-search
+zle -N up-line-or-beginning-search
+
+bindkey -M emacs "^[[A" up-line-or-beginning-search
+bindkey -M viins "^[[A" up-line-or-beginning-search
+bindkey -M vicmd "^[[A" up-line-or-beginning-search
+if [[ -n "${terminfo[kcuu1]}" ]]; then
+  bindkey -M emacs "${terminfo[kcuu1]}" up-line-or-beginning-search
+  bindkey -M viins "${terminfo[kcuu1]}" up-line-or-beginning-search
+  bindkey -M vicmd "${terminfo[kcuu1]}" up-line-or-beginning-search
+fi
+
+# Start typing + [Down-Arrow] - fuzzy find history backward
+autoload -U down-line-or-beginning-search
+zle -N down-line-or-beginning-search
+
+bindkey -M emacs "^[[B" down-line-or-beginning-search
+bindkey -M viins "^[[B" down-line-or-beginning-search
+bindkey -M vicmd "^[[B" down-line-or-beginning-search
+if [[ -n "${terminfo[kcud1]}" ]]; then
+  bindkey -M emacs "${terminfo[kcud1]}" down-line-or-beginning-search
+  bindkey -M viins "${terminfo[kcud1]}" down-line-or-beginning-search
+  bindkey -M vicmd "${terminfo[kcud1]}" down-line-or-beginning-search
+fi
+
+# If you want to use Oh My Zsh comment the under part
+# export ZSH="$HOME/.oh-my-zsh"
+# plugins=(git)
+# source $ZSH/oh-my-zsh.sh
+
 # Variables
 export EDITOR=nvim
 
@@ -72,7 +103,6 @@ export SDKMAN_DIR="$HOME/.sdkman"
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
 [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
 
-# ----------
 # Aliases
 alias ll="eza --icons --group-directories-first"
 alias la="eza -all -long --icons --group-directories-first"
