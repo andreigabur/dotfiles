@@ -8,7 +8,10 @@
 
     ln -s ~/dotfiles/.zshrc ~/.zshrc
     ln -s ~/dotfiles/.config/nvim ~/.config/nvim
+    ln -s ~/dotfiles/.config/starship.toml ~/.config/starship.toml
     ln -s ~/dotfiles/.config/kitty ./kitty
+    ln -s ~/dotfiles/.config/images ~/.config/images
+    ln -s ~/dotfiles/.wezterm.lua ~/.wezterm.lua
 
 ## set zsh as default shell
 `chsh -s $(which zsh)`

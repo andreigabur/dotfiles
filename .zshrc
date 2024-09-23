@@ -79,4 +79,4 @@ alias la="eza -all -long --icons --group-directories-first"
 alias vim="nvim"
 alias idea="(/home/andrei/Development/bin/ideaIU-2024.2/idea-IU-242.20224.300/bin/idea.sh > /dev/null 2>&1) &"
 alias vscode="code --ozone-platform=wayland"
-
+alias wezterm="flatpak run org.wezfurlong.wezterm"
