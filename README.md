@@ -26,3 +26,8 @@ rm ~/.zshrc
 
 ## Set zsh as default shell
 `chsh -s $(which zsh)`
+
+# Screenshots
+
+![screenshot1](./screenshots/screenshot-wezterm-lazygit.png "Wezterm lazyvim")
+![screenshot2](./screenshots/screenshot-kitty-nvim.png "Kitty nvim")
