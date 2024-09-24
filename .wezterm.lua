@@ -15,7 +15,7 @@ config.background = {{
     hsb = {
         hue = 1.0,
         saturation = 1.0,
-        brightness = 0.4
+        brightness = 0.3
     },
     horizontal_align = "Center",
     vertical_align = "Middle",
