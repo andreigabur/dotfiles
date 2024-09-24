@@ -6,11 +6,11 @@ local wezterm = require 'wezterm'
 -- This will hold the configuration.
 local config = wezterm.config_builder()
 
-config.color_scheme = 'Catppuccin Mocha'
+config.color_scheme = "Catppuccin Mocha"
 
 -- config.background = {{
 --     source = {
---         File = './.config/images/nyc-rootline.jpg'
+--         File = "./dotfiles/images/flatppuccin.jpg"
 --     },
 --     hsb = {
 --         hue = 1.0,
@@ -19,18 +19,19 @@ config.color_scheme = 'Catppuccin Mocha'
 --     },
 --     horizontal_align = "Center",
 --     vertical_align = "Middle",
---     opacity = 1.0
+--     opacity = 0.9
 -- }}
 
-config.window_background_opacity = 0.9
+-- config.window_background_opacity = 0.5
 
 config.use_fancy_tab_bar = false
 
 config.show_tab_index_in_tab_bar = true
 
 config.colors = {
+    background = "rgba(24, 24, 37, 0.6)",
     tab_bar = {
-        background = "rgba(0,0,0,0)"
+        background = "rgba(24, 24, 37, 0.6)"
     }
 }
 
