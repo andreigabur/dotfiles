@@ -8,19 +8,21 @@ local config = wezterm.config_builder()
 
 config.color_scheme = 'Catppuccin Mocha'
 
-config.background = {{
-    source = {
-        File = './.config/images/flatppuccin.jpg'
-    },
-    hsb = {
-        hue = 1.0,
-        saturation = 1.0,
-        brightness = 0.1
-    },
-    horizontal_align = "Center",
-    vertical_align = "Middle",
-    opacity = 0.92
-}}
+-- config.background = {{
+--     source = {
+--         File = './.config/images/nyc-rootline.jpg'
+--     },
+--     hsb = {
+--         hue = 1.0,
+--         saturation = 1.0,
+--         brightness = 0.1
+--     },
+--     horizontal_align = "Center",
+--     vertical_align = "Middle",
+--     opacity = 1.0
+-- }}
+
+config.window_background_opacity = 0.9
 
 config.use_fancy_tab_bar = false
 
