@@ -19,7 +19,7 @@ config.background = {{
     },
     horizontal_align = "Center",
     vertical_align = "Middle",
-    opacity = 0.9
+    opacity = 0.92
 }}
 
 config.use_fancy_tab_bar = false
