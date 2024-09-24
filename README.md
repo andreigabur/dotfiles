@@ -5,8 +5,9 @@
 - Lazygit `brew install lazygit`
 - Starship `brew install starship`
 - fzf `brew install fzf`
-- Wezterm [Install](https://wezfurlong.org/wezterm/installation.html)
-- Kitty [Install](https://sw.kovidgoyal.net/kitty/binary/#)
+- Install [Wezterm](https://wezfurlong.org/wezterm/installation.html)
+- Install [Kitty](https://sw.kovidgoyal.net/kitty/binary/#)
+- Install [Hack Nerd Font](https://www.nerdfonts.com/font-downloads)
 
 ## Oh-my-zsh
 ```
