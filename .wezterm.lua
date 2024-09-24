@@ -10,16 +10,16 @@ config.color_scheme = 'Catppuccin Mocha'
 
 config.background = {{
     source = {
-        File = './.config/images/catppuccin.png'
+        File = './.config/images/flatppuccin.jpg'
     },
     hsb = {
         hue = 1.0,
         saturation = 1.0,
-        brightness = 0.3
+        brightness = 0.1
     },
     horizontal_align = "Center",
     vertical_align = "Middle",
-    opacity = 0.95
+    opacity = 0.9
 }}
 
 config.use_fancy_tab_bar = false
