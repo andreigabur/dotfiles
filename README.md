@@ -3,6 +3,16 @@
 ## Tools to install
 
 - Lazygit `brew install lazygit`
+- Starship `brew install starship`
+- fzf `brew install fzf`
+- Wezterm [Install](https://wezfurlong.org/wezterm/installation.html)
+- Kitty [Install](https://sw.kovidgoyal.net/kitty/binary/#)
+
+## Oh-my-zsh
+```
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+rm ~/.zshrc
+```
 
 ## Create symbolic links
 
@@ -13,22 +23,5 @@
     ln -s ~/dotfiles/.config/images ~/.config/images
     ln -s ~/dotfiles/.wezterm.lua ~/.wezterm.lua
 
-## set zsh as default shell
+## Set zsh as default shell
 `chsh -s $(which zsh)`
-
-## How to use bare repository for dotfiles
-
-### create bare repository
-    git init --bare $HOME/.dotfiles
-
-### set alias for bare get in .zshrc file
-    echo 'alias dot="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME"' >> $HOME/.zshrc
-
-### set track only added files
-    dot config --local status.showUntrackedFiles no
-
-### add remote repository
-    dot remote add origin git@github.com:andreigabur/dotfiles.git
-
-### set alias for lazygit with dotfiles
-    echo 'alias lgdot="lazygit --git-dir=$HOME/.dotfiles --work-tree=$HOME"' >> $HOME/.zshrc

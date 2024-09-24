@@ -10,17 +10,16 @@ config.color_scheme = 'Catppuccin Mocha'
 
 config.background = {{
     source = {
-        File = './.config/images/flatppuccin.png'
-        -- Gradient={preset="Warm"}
+        File = './.config/images/catppuccin.png'
     },
     hsb = {
         hue = 1.0,
         saturation = 1.0,
-        brightness = 0.2
+        brightness = 0.4
     },
     horizontal_align = "Center",
     vertical_align = "Middle",
-    opacity = 0.9
+    opacity = 0.95
 }}
 
 config.use_fancy_tab_bar = false
@@ -45,5 +44,23 @@ config.window_padding = {
     top = 10,
     bottom = 10
 }
+
+config.initial_cols = 200
+config.initial_rows = 60
+
+config.xcursor_theme = "Yaru"
+
+config.keys = {
+    {
+        key = '\r',
+        mods = 'CTRL|SHIFT',
+        action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' },
+    },
+    {
+        key = '"',
+        mods = 'CTRL|SHIFT',
+        action = wezterm.action.SplitVertical { domain = 'CurrentPaneDomain' },
+    },
+  }
 
 return config

@@ -1,84 +1,89 @@
-# Set history
-setopt histignorealldups sharehistory
-
-## Keep 10000 lines of history within the shell and save it to ~/.zsh_history:
-HISTSIZE=10000
-SAVEHIST=10000
-HISTFILE=~/.zsh_history
-
-
-# Use modern completion system
-autoload -Uz compinit
-compinit
-
-# Defining the completers
-zstyle ':completion:*' completer _expand _complete _correct _approximate
-# Use menu-based selection of completions
-zstyle ':completion:*' menu select
-# Group results
-zstyle ':completion:*' group-name ''
-# Case-insensitive completion
-zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
-# Format the result
-zstyle ':completion:*:*:corrections' format '%F{yellow}-- %d (errors: %e) --%f'
-zstyle ':completion:*:*:warnings' format ' %F{red}-- no matches found --%f'
-zstyle ':completion:*:*:descriptions' format '%F{green}-- %d --%f'
-zstyle ':completion:*:messages' format '%F{blue}-- %d --%f'
-# Load colors
-[[ $(command -v dircolors) ]] &&
-  eval "$(dircolors -b)" &&
-  zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
-# Verbose mode
-zstyle ':completion:*' verbose yes
-# Auto descrition
-zstyle ':completion:*' auto-description 'specify: %d'
-# Do not fallback to compctl
-zstyle ':completion:*' use-compctl false
-# Completion for kill
-zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
-zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
-
-
-# Start typing + [Up-Arrow] - fuzzy find history forward
-autoload -U up-line-or-beginning-search
-zle -N up-line-or-beginning-search
-
-bindkey -M emacs "^[[A" up-line-or-beginning-search
-bindkey -M viins "^[[A" up-line-or-beginning-search
-bindkey -M vicmd "^[[A" up-line-or-beginning-search
-if [[ -n "${terminfo[kcuu1]}" ]]; then
-  bindkey -M emacs "${terminfo[kcuu1]}" up-line-or-beginning-search
-  bindkey -M viins "${terminfo[kcuu1]}" up-line-or-beginning-search
-  bindkey -M vicmd "${terminfo[kcuu1]}" up-line-or-beginning-search
-fi
-
-# Start typing + [Down-Arrow] - fuzzy find history backward
-autoload -U down-line-or-beginning-search
-zle -N down-line-or-beginning-search
-
-bindkey -M emacs "^[[B" down-line-or-beginning-search
-bindkey -M viins "^[[B" down-line-or-beginning-search
-bindkey -M vicmd "^[[B" down-line-or-beginning-search
-if [[ -n "${terminfo[kcud1]}" ]]; then
-  bindkey -M emacs "${terminfo[kcud1]}" down-line-or-beginning-search
-  bindkey -M viins "${terminfo[kcud1]}" down-line-or-beginning-search
-  bindkey -M vicmd "${terminfo[kcud1]}" down-line-or-beginning-search
-fi
-
-# If you want to use Oh My Zsh comment the under part
-# export ZSH="$HOME/.oh-my-zsh"
-# plugins=(git)
-# source $ZSH/oh-my-zsh.sh
-
-# Variables
-export EDITOR=nvim
-
-# ----------
-# Load Homebrew
+# Load Homebrew on Linux
 [[ -f "/home/linuxbrew/.linuxbrew/bin/brew" ]] &&
   eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
-## Postgres installed with Brew
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+
+# Path to your Oh My Zsh installation.
+export ZSH="$HOME/.oh-my-zsh"
+
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time Oh My Zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+# ZSH_THEME="robbyrussell"
+
+# Set list of themes to pick from when loading at random
+# Setting this variable when ZSH_THEME=random will cause zsh to load
+# a theme from this variable instead of looking in $ZSH/themes/
+# If set to an empty array, this variable will have no effect.
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
+
+# Uncomment the following line to use hyphen-insensitive completion.
+# Case-sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
+
+# Uncomment one of the following lines to change the auto-update behavior
+# zstyle ':omz:update' mode disabled  # disable automatic updates
+# zstyle ':omz:update' mode auto      # update automatically without asking
+# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
+
+# Uncomment the following line to change how often to auto-update (in days).
+# zstyle ':omz:update' frequency 13
+
+# Uncomment the following line if pasting URLs and other text is messed up.
+# DISABLE_MAGIC_FUNCTIONS="true"
+
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
+
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
+
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+# You can also set it to another string to have that shown instead of the default red dots.
+# e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
+# Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
+# COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# You can set one of the optional three formats:
+# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# or set a custom format using the strftime function format specifications,
+# see 'man strftime' for details.
+# HIST_STAMPS="mm/dd/yyyy"
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
+
+# Which plugins would you like to load?
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(fzf git)
+
+source $ZSH/oh-my-zsh.sh
+
+# User configuration
+
+# Preferred editor
+export EDITOR=nvim
+
+## Postgres installed with Linux Homebrew
 [[ -d "/home/linuxbrew/.linuxbrew/opt/postgresql@16/bin" ]] &&
   export PATH=$PATH:/home/linuxbrew/.linuxbrew/opt/postgresql@16/bin/
 
@@ -104,16 +109,16 @@ export SDKMAN_DIR="$HOME/.sdkman"
 [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
 
 # Aliases
-alias ll="eza --icons --group-directories-first"
-alias la="eza -all -long --icons --group-directories-first"
-# Search in directories
-alias fd="find . -type d -print | fzf"
-# Search with preview
-alias fz="find . -type f -print | fzf --preview=\"bat --color=always {}\""
 alias vim="nvim"
 alias idea="(/home/andrei/Development/bin/ideaIU-2024.2/idea-IU-242.20224.300/bin/idea.sh > /dev/null 2>&1) &"
 alias vscode="code --ozone-platform=wayland"
 alias wezterm="flatpak run org.wezfurlong.wezterm"
+
+alias ll="eza --icons --group-directories-first"
+alias la="eza -all -long --icons --group-directories-first"
+
+alias fd="find . -type d -print | fzf"
+alias ff="find . -type f -print | fzf --preview=\"bat --color=always {}\""
 
 # Fzf for deploy.sh
 _fzf_complete_deploy() {
