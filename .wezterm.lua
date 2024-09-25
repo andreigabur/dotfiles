@@ -22,16 +22,16 @@ config.color_scheme = "Catppuccin Mocha"
 --     opacity = 0.9
 -- }}
 
--- config.window_background_opacity = 0.5
+-- config.window_background_opacity = 0.8
 
 config.use_fancy_tab_bar = false
 
 config.show_tab_index_in_tab_bar = true
 
 config.colors = {
-    background = "rgba(24, 24, 37, 0.6)",
+    background = "rgba(24, 24, 37, 0.7)",
     tab_bar = {
-        background = "rgba(24, 24, 37, 0.6)"
+        background = "rgba(24, 24, 37, 0.7)"
     }
 }
 
