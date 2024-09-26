@@ -27,6 +27,8 @@ rm ~/.zshrc
 ## Set zsh as default shell
 `chsh -s $(which zsh)`
 
+# Tips
+
 # Screenshots
 
 ![screenshot1](./screenshots/screenshot-wezterm-lazygit.png "Wezterm lazyvim")
