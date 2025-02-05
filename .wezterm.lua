@@ -24,6 +24,8 @@ config.color_scheme = "Catppuccin Mocha"
 
 -- config.window_background_opacity = 0.8
 
+config.tab_max_width = 100
+
 config.use_fancy_tab_bar = false
 
 config.show_tab_index_in_tab_bar = true
