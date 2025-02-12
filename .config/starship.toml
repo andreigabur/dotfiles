@@ -7,6 +7,9 @@ symbol = " "
 [c]
 symbol = " "
 
+[cmake]
+symbol = " "
+
 [conda]
 symbol = " "
 
@@ -36,6 +39,9 @@ symbol = " "
 
 [git_branch]
 symbol = " "
+
+[git_commit]
+tag_symbol = '  '
 
 [golang]
 symbol = " "
@@ -162,3 +168,6 @@ symbol = " "
 
 [zig]
 symbol = " "
+
+[gradle]
+symbol = " "
