@@ -2,6 +2,10 @@
 [[ -f "/home/linuxbrew/.linuxbrew/bin/brew" ]] &&
   eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
+# Load Homebrew on macOS
+[[ -f "/opt/homebrew/bin/brew" ]] &&
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
