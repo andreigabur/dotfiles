@@ -22,7 +22,7 @@
   "buffer_font_size": 15,
   "theme": {
     "mode": "system",
-    "light": "One Light",
+    "light": "Ayu Mirage",
     "dark": "One Dark"
   },
   "terminal": {

@@ -1,6 +1,7 @@
 {
-  "workbench.colorTheme": "ZED One Theme Light",
   "editor.fontFamily": "Hack Nerd Font, Menlo, Monaco, monospace",
   "window.zoomLevel": 0.2,
-  "editor.fontSize": 14
+  "editor.fontSize": 14,
+  "window.titleBarStyle": "custom",
+  "workbench.colorTheme": "Default Dark+"
 }
