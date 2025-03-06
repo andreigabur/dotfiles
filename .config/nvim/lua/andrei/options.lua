@@ -26,3 +26,5 @@ opt.splitbelow = true
 
 -- keymaps
 vim.g.mapleader = " "
+
+vim.keymap.set("n", "<leader>w", "<C-w>", {remap = true, desc = "Windows ..."})
