@@ -1,0 +1,14 @@
+{
+    "ai:preset": "ai@gemini",
+    "autoupdate:channel": "latest",
+    "tab:preset": "bg@twilight-mist",
+    "telemetry:enabled": false,
+    "term:fontfamily": "Hack Nerd Font",
+    "term:fontsize": 14,
+    "term:theme": "default-dark",
+    "term:transparency": 0.5,
+    "window:nativetitlebar": true,
+    "window:opacity": 0.9,
+    "window:showmenubar": false,
+    "window:transparent": false
+}
