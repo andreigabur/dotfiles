@@ -1,7 +1,9 @@
 {
-  "editor.fontFamily": "Hack Nerd Font, Menlo, Monaco, monospace",
+  // "editor.fontFamily": "IBM Plex Mono, Hack Nerd Font, Monaco, monospace",
   "window.zoomLevel": 0.2,
   "editor.fontSize": 14,
+  "editor.lineHeight": 23,
   "window.titleBarStyle": "custom",
-  "workbench.colorTheme": "Visual Studio Light"
+  "workbench.iconTheme": "Monokai Pro Icons",
+  "workbench.colorTheme": "One Dark Pro"
 }
