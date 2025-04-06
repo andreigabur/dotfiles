@@ -110,8 +110,10 @@ export SDKMAN_DIR="$HOME/.sdkman"
 
 # NVM
 [[ -d "/$HOME/.nvm" ]] && export NVM_DIR="$HOME/.nvm"
-[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
-[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
+[[ -d "/opt/homebrew/opt/nvm/" ]] && [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
+[[ -d "/opt/homebrew/opt/nvm/" ]] && [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
+[[ -d "/home/linuxbrew/.linuxbrew/opt/nvm/" ]] && [ -s "/home/linuxbrew/.linuxbrew/opt/nvm/nvm.sh" ] && \. "/home/linuxbrew/.linuxbrew/opt/nvm/nvm.sh"
+[[ -d "/home/linuxbrew/.linuxbrew/opt/nvm/" ]] && [ -s "/home/linuxbrew/.linuxbrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/home/linuxbrew/.linuxbrew/opt/nvm/etc/bash_completion.d/nvm"
 
 # Aliases
 alias vim="nvim"

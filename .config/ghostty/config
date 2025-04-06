@@ -50,8 +50,16 @@
 
 background-opacity = 0.95
 
+# scrollback-limit = 10000000
+
 window-height = 40
 
+window-height = 55
+
 window-width = 160
+
+window-padding-x = 20
+
+window-padding-y = 5
 
 # theme = AtomOneDark
