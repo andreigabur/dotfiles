@@ -1,8 +1,6 @@
 {
-  // "editor.fontFamily": "IBM Plex Mono, Hack Nerd Font, Monaco, monospace",
-  "window.zoomLevel": 0.2,
-  "editor.fontSize": 14,
-  "editor.lineHeight": 23,
-  "window.titleBarStyle": "custom",
-  "workbench.colorTheme": "One Dark Pro"
+  "editor.fontFamily": "'JetBrainsMono Nerd Font', 'Hack Nerd Font Mono', 'monospace', monospace",
+  // "editor.fontSize": 14,
+  "editor.lineHeight": 22
+  // "window.zoomLevel": 0.2,
 }

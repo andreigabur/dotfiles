@@ -1,5 +1,5 @@
 # Load Homebrew on Linux
-[[ -f "/home/linuxbrew/.linuxbrew/bin/brew" ]] &&
+[[ -f "/home/linuxbrew/.linuxbrew/bin/brew" ]] && 
   eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # Load Homebrew on macOS
@@ -8,7 +8,6 @@
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
-export PATH=$HOME/.local/bin:$PATH
 
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -85,16 +84,34 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-# Preferred editor
-export EDITOR=nvim
+# export MANPATH="/usr/local/man:$MANPATH"
 
-## Postgres installed with Linux Homebrew
-[[ -d "/home/linuxbrew/.linuxbrew/opt/postgresql@16/bin" ]] &&
-  export PATH=$PATH:/home/linuxbrew/.linuxbrew/opt/postgresql@16/bin/
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
 
-## Go bins
-[[ -d "$HOME/go/bin" ]] &&
-  export PATH=$PATH:~/go/bin
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='nvim'
+# fi
+
+# Compilation flags
+# export ARCHFLAGS="-arch $(uname -m)"
+
+# Set personal aliases, overriding those provided by Oh My Zsh libs,
+# plugins, and themes. Aliases can be placed here, though Oh My Zsh
+# users are encouraged to define aliases within a top-level file in
+# the $ZSH_CUSTOM folder, with .zsh extension. Examples:
+# - $ZSH_CUSTOM/aliases.zsh
+# - $ZSH_CUSTOM/macos.zsh
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+
+export PATH="$PATH:/usr/local/rootlinegit"
 
 ## Rootline scripts
 [[ -d "$HOME/Development" ]] &&
@@ -104,40 +121,36 @@ export EDITOR=nvim
 [[ $(command -v starship) ]] &&
   eval "$(starship init zsh)"
 
-# SDKMAN - THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
-# NVM
-[[ -d "/$HOME/.nvm" ]] && export NVM_DIR="$HOME/.nvm"
-[[ -d "/opt/homebrew/opt/nvm/" ]] && [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
-[[ -d "/opt/homebrew/opt/nvm/" ]] && [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
-[[ -d "/home/linuxbrew/.linuxbrew/opt/nvm/" ]] && [ -s "/home/linuxbrew/.linuxbrew/opt/nvm/nvm.sh" ] && \. "/home/linuxbrew/.linuxbrew/opt/nvm/nvm.sh"
-[[ -d "/home/linuxbrew/.linuxbrew/opt/nvm/" ]] && [ -s "/home/linuxbrew/.linuxbrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/home/linuxbrew/.linuxbrew/opt/nvm/etc/bash_completion.d/nvm"
-
 # Aliases
-alias vim="nvim"
-alias idea="(/home/andrei/Development/bin/ideaIU-2024.2/idea-IU-242.20224.300/bin/idea.sh > /dev/null 2>&1) &"
-
 alias ll="eza --icons --group-directories-first"
 alias la="eza -all -long --icons --group-directories-first"
 
-alias fd="find . -type d -print | fzf"
-alias ff="find . -type f -print | fzf --preview=\"bat --color=always {}\""
+alias fd="find . -type d | fzf"
+alias ff="fzf --preview=\"bat --color=always {}\""
 
-# Fzf for deploy.sh
-_fzf_complete_deploy() {
-  local -a completions
-  completions=($(command bazel query --keep_going --noshow_progress "kind('k8s_object', deps(//k8s/...))" 2>/dev/null | grep local.apply | sed 's/\/local.apply//'))
-
-  # Use fzf to select from completions
-  local selected
-  selected=$(printf '%s\n' "${completions[@]}" | fzf --height 50% --reverse)
-
-  # If something was selected, print it to stdout
-  if [[ -n $selected ]]; then
-    print -r -- "$selected"
+# Custom Zsh Completions
+_fzf_complete_bazel() {
+  local tokens
+  tokens=( ${(Q)${(z)BUFFER}} )
+  if [ ${#tokens} -ge 3 ] && [ "${tokens[2]}" = "test" ]; then
+    _fzf_complete '-m' "$@" < <(command bazel query --keep_going --noshow_progress "kind('java_test', //...) union kind('test_suite', //...)" 2> /dev/null)
+  elif [ ${#tokens} -ge 3 ] && [ "${tokens[2]}" = "run" ]; then
+    _fzf_complete '-m' "$@" < <(command bazel query --keep_going --noshow_progress "kind('(binary rule)', //...) union kind('k8s_object', //k8s/...)" 2> /dev/null)
+  else
+    _fzf_complete '-m' "$@" < <(command bazel query --keep_going --noshow_progress ... 2> /dev/null)
   fi
 }
-# Bind the function to the deploy command
-compdef _fzf_complete_deploy deploy.sh
+
+# Register completion for bazel
+compdef _fzf_complete_bazel bazel
+
+_fzf_complete_deploy_sh() {
+  _fzf_complete '-m' "$@" < <(command bazel query --keep_going --noshow_progress "kind('k8s_object', deps(//k8s/...))" 2> /dev/null | grep local.apply | sed s/\\/local.apply//)
+}
+
+# Register completion for deploy.sh
+compdef _fzf_complete_deploy_sh deploy.sh

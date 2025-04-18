@@ -19,6 +19,8 @@ rm ~/.zshrc
 
     ln -s ~/dotfiles/.zshrc ~/.zshrc
     ln -s ~/dotfiles/.config/nvim ~/.config/nvim
+    ln -s ~/dotfiles/.config/ghostty ~/.config/ghostty
+    ln -s ~/dotfiles/vscode/settings.json ~/.config/Code/User/settings.json
     ln -s ~/dotfiles/.config/starship.toml ~/.config/starship.toml
     ln -s ~/dotfiles/.config/kitty ./kitty
     ln -s ~/dotfiles/.config/images ~/.config/images

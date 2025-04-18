@@ -48,18 +48,12 @@
 # # Just for example:
 # resize-overlay-duration = 4s 200ms
 
-background-opacity = 0.95
-
+# window-width = 120
+# window-height = 40
+# window-padding-x = 12
+# window-padding-y = 4
+font-size = 11
+# background-opacity = 0.9
 # scrollback-limit = 10000000
-
-window-height = 40
-
-window-height = 55
-
-window-width = 160
-
-window-padding-x = 20
-
-window-padding-y = 5
-
-# theme = AtomOneDark
+# term = xterm-256color
+# theme = Atom
