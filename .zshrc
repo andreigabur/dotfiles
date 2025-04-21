@@ -132,7 +132,8 @@ alias la="eza -all -long --icons --group-directories-first"
 alias fd="find . -type d | fzf"
 alias ff="fzf --preview=\"bat --color=always {}\""
 
-# Custom Zsh Completions
+# Custom Zsh Completions for bazel
+# Automatically register the function to `bazel`
 _fzf_complete_bazel() {
   local tokens
   tokens=( ${(Q)${(z)BUFFER}} )
@@ -141,16 +142,12 @@ _fzf_complete_bazel() {
   elif [ ${#tokens} -ge 3 ] && [ "${tokens[2]}" = "run" ]; then
     _fzf_complete '-m' "$@" < <(command bazel query --keep_going --noshow_progress "kind('(binary rule)', //...) union kind('k8s_object', //k8s/...)" 2> /dev/null)
   else
-    _fzf_complete '-m' "$@" < <(command bazel query --keep_going --noshow_progress ... 2> /dev/null)
+    _fzf_complete '-m' "$@" < <(command  bazel query --keep_going --noshow_progress "kind('java_library', //...)" 2> /dev/null)
   fi
 }
 
-# Register completion for bazel
-compdef _fzf_complete_bazel bazel
-
-_fzf_complete_deploy_sh() {
+# Custom Zsh Completions for deploy.sh
+# Automatically register the function to `deploy.sh`
+_fzf_complete_deploy.sh() {
   _fzf_complete '-m' "$@" < <(command bazel query --keep_going --noshow_progress "kind('k8s_object', deps(//k8s/...))" 2> /dev/null | grep local.apply | sed s/\\/local.apply//)
 }
-
-# Register completion for deploy.sh
-compdef _fzf_complete_deploy_sh deploy.sh
