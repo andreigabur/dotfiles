@@ -2,10 +2,19 @@
 
 ## Tools to install
 
-- Lazygit `brew install lazygit`
-- Starship `brew install starship`
-- fzf `brew install fzf`
-- Install [Wezterm](https://wezfurlong.org/wezterm/installation.html)
+```bash
+# Starship 
+brew install starship
+# fzf 
+brew install fzf
+# eza 
+brew install eza
+# ripgrep 
+brew install ripgrep
+# lazygit 
+brew install lazygit
+```
+- Install [Ghostty](https://ghostty.org/download)
 - Install [Kitty](https://sw.kovidgoyal.net/kitty/binary/#)
 - Install [Hack Nerd Font](https://www.nerdfonts.com/font-downloads)
 
