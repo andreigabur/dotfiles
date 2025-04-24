@@ -125,6 +125,11 @@ export PATH="$PATH:/usr/local/rootlinegit"
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "/home/linuxbrew/.linuxbrew/opt/nvm/nvm.sh" ] && \. "/home/linuxbrew/.linuxbrew/opt/nvm/nvm.sh"  # This loads nvm
+
+export EDITOR=nvim
+
 # Aliases
 alias ll="eza --icons --group-directories-first"
 alias la="eza -all -long --icons --group-directories-first"

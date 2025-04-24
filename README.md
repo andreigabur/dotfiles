@@ -14,9 +14,11 @@ brew install ripgrep
 # lazygit 
 brew install lazygit
 ```
-- Install [Ghostty](https://ghostty.org/download)
-- Install [Kitty](https://sw.kovidgoyal.net/kitty/binary/#)
-- Install [Hack Nerd Font](https://www.nerdfonts.com/font-downloads)
+- Install [Ghostty](https://ghostty.org/download) terminal
+- Or install [Kitty](https://sw.kovidgoyal.net/kitty/binary/#) terminal
+- Install a [Nerd Font](https://www.nerdfonts.com/font-downloads) (like JetBrains, FiraCode or Hack)
+- Install [NetData](https://github.com/netdata/netdata) to monitor your system
+
 
 ## Oh-my-zsh
 ```
