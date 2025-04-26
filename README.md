@@ -20,9 +20,10 @@ Install a [Nerd Font](https://www.nerdfonts.com/font-downloads) (like JetBrains,
 - [NetData](https://github.com/netdata/netdata)
 
 #### Alternative terminals
-- [Ghostty](https://ghostty.org/download)
-- [Kitty](https://sw.kovidgoyal.net/kitty/binary/#)
-- [WezTerm](https://wezterm.org/)
+- [Kitty](https://sw.kovidgoyal.net/kitty/binary/#) (Python)
+- [WezTerm](https://wezterm.org/) (Rust)
+- [Alacritty](https://alacritty.org/) (Rust)
+- [Ghostty](https://ghostty.org/download) (Zig)
 
 ## Oh-my-zsh
 ```bash
@@ -36,8 +37,10 @@ ln -s ~/dotfiles/.zshrc ~/.zshrc
 ln -s ~/dotfiles/.config/nvim ~/.config/nvim
 ln -s ~/dotfiles/.config/starship.toml ~/.config/starship.toml
 ln -s ~/dotfiles/vscode/settings.json ~/.config/Code/User/settings.json
+ln -s ~/dotfiles/.wezterm.lua ~/.wezterm.lua
+ln -s ~/dotfiles/.config/alacritty ~/.config/alacritty
 ln -s ~/dotfiles/.config/ghostty ~/.config/ghostty
-ln -s ~/dotfiles/.config/kitty ./kitty
+ln -s ~/dotfiles/.config/kitty ~/.config/kitty
 ```
 
 ## Set zsh as default shell
@@ -47,5 +50,6 @@ ln -s ~/dotfiles/.config/kitty ./kitty
 
 # Screenshots
 
-![screenshot1](./screenshots/screenshot-lazygit-nvim.jpeg "Lazygit in nvim")
-![screenshot2](./screenshots/screenshot-list-and-bat.jpeg "Terminal list and bat")
+![screenshot kitty](./screenshots/kitty-bat.jpeg "Bat in Kitty")
+![wezterm lazygit](./screenshots/wezterm-lazygit.jpeg "Lazygit in Wezterm")
+![alacritty neovim](./screenshots/alacritty-nvim.jpeg "Neovim in alacritty")

@@ -8,6 +8,6 @@ return {
     lazygit = {},
   },
   keys = {
-    { "<leader>g", function() Snacks.lazygit() end, desc = "Lazy[G]it" }, 
+    { "<leader>g", function() Snacks.lazygit() end, desc = "[G]it Lazigit" }, 
   }
 }
