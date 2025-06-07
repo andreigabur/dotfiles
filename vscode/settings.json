@@ -1,12 +1,12 @@
 {
-  "editor.fontFamily": "'JetBrainsMono Nerd Font', 'FiraCode Nerd Font', 'monospace', monospace",
-  // "editor.fontSize": 14,
-  "editor.lineHeight": 22,
+  "editor.fontFamily": "'JetBrainsMono Nerd Font', monospace",
+  "editor.fontSize": 13,
+  "editor.lineHeight": 20,
   "workbench.colorTheme": "Catppuccin Mocha",
   "workbench.colorCustomizations": {
-    "editor.background": "#181825",
-    "editorGutter.background": "#181825",
-    "editorGroupHeader.tabsBackground": "#181825",
-    "breadcrumb.background": "#181825"
+    // "editor.background": "#181825",
+    // "editorGutter.background": "#181825",
+    // "editorGroupHeader.tabsBackground": "#181825",
+    // "breadcrumb.background": "#181825"
   }
 }

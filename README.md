@@ -14,7 +14,10 @@ brew install ripgrep
 # lazygit 
 brew install lazygit
 ```
-Install a [Nerd Font](https://www.nerdfonts.com/font-downloads) (like JetBrains, FiraCode or Hack)
+
+#### Fonts
+- [Nerd Font](https://www.nerdfonts.com/font-downloads) from where to pick a font with icons like JetBrains, FiraCode or Hack.
+- [JetBrains Mono Font](https://www.jetbrains.com/lp/mono/) from where to get a font without icons.
 
 #### System monitoring
 - [NetData](https://github.com/netdata/netdata)
