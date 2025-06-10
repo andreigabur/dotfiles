@@ -11,22 +11,22 @@
     "metrics": false,
     "diagnostics": false
   },
-  "assistant": {
+  "agent": {
+    "default_profile": "ask",
     "default_model": {
-      "provider": "google",
-      "model": "gemini-2.5-pro-exp-03-25"
+      "provider": "zed.dev",
+      "model": "claude-sonnet-4"
     },
-    "version": "2",
-    "enable_experimental_live_diffs": true
+    "version": "2"
   },
-  "ui_font_size": 16,
-  "buffer_font_size": 15,
+  "ui_font_size": 14,
+  "buffer_font_size": 14,
   "theme": {
     "mode": "system",
     "light": "One Dark",
     "dark": "One Dark"
+  },
+  "terminal": {
+    "font_family": "JetBrainsMono Nerd Font Mono"
   }
-  // "terminal": {
-  //   "font_family": "Hack Nerd Font"
-  // }
 }

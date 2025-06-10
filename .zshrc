@@ -1,5 +1,5 @@
 # Load Homebrew on Linux
-[[ -f "/home/linuxbrew/.linuxbrew/bin/brew" ]] && 
+[[ -f "/home/linuxbrew/.linuxbrew/bin/brew" ]] &&
   eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # Load Homebrew on macOS
@@ -126,6 +126,7 @@ export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "/home/linuxbrew/.linuxbrew/opt/nvm/nvm.sh" ] && \. "/home/linuxbrew/.linuxbrew/opt/nvm/nvm.sh"  # This loads nvm
 
 export EDITOR=nvim
@@ -156,3 +157,6 @@ _fzf_complete_bazel() {
 _fzf_complete_deploy.sh() {
   _fzf_complete '-m' "$@" < <(command bazel query --keep_going --noshow_progress "kind('k8s_object', deps(//k8s/...))" 2> /dev/null | grep local.apply | sed s/\\/local.apply//)
 }
+
+# Added by Windsurf
+export PATH="/Users/andrei/.codeium/windsurf/bin:$PATH"
