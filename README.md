@@ -3,21 +3,21 @@
 ## Tools to install
 
 ```bash
-# Starship 
+# Starship
 brew install starship
-# fzf 
+# fzf
 brew install fzf
-# eza 
+# eza
 brew install eza
-# ripgrep 
+# ripgrep
 brew install ripgrep
-# lazygit 
+# lazygit
 brew install lazygit
 ```
 
 #### Fonts
-- [Nerd Font](https://www.nerdfonts.com/font-downloads) from where to pick a font with icons like JetBrains, FiraCode or Hack.
-- [JetBrains Mono Font](https://www.jetbrains.com/lp/mono/) from where to get a font without icons.
+- [Nerd Font](https://www.nerdfonts.com/font-downloads) from where to pick a font with icons like BlexMono Nerd Font or JetBrainsMono Nerd Font.
+- [JetBrains Mono Font](https://www.jetbrains.com/lp/mono/) from where to get the stanrad JetBrains font without icons.
 
 #### System monitoring
 - [NetData](https://github.com/netdata/netdata)

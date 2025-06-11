@@ -1,12 +1,6 @@
 {
-  "editor.fontFamily": "'JetBrainsMono Nerd Font', monospace",
+  "workbench.colorTheme": "Default Dark+",
   "editor.fontSize": 13,
-  "editor.lineHeight": 20,
-  "workbench.colorTheme": "Catppuccin Mocha",
-  "workbench.colorCustomizations": {
-    // "editor.background": "#181825",
-    // "editorGutter.background": "#181825",
-    // "editorGroupHeader.tabsBackground": "#181825",
-    // "breadcrumb.background": "#181825"
-  }
+  "terminal.integrated.fontSize": 13,
+  "editor.fontFamily": "BlexMono Nerd Font, Menlo, Monaco"
 }
