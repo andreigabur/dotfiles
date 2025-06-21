@@ -1,6 +1,7 @@
 {
   "workbench.colorTheme": "Default Dark+",
-  "editor.fontSize": 13,
+  // "editor.fontSize": 13,
+  "editor.lineHeight": 21,
   "terminal.integrated.fontSize": 13,
   "editor.fontFamily": "BlexMono Nerd Font, Menlo, Monaco"
 }
