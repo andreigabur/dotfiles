@@ -20,6 +20,8 @@ symbol = " "
 symbol = " "
 
 [directory]
+truncation_length = 4
+truncation_symbol = '…/'
 read_only = " 󰌾"
 
 [docker_context]

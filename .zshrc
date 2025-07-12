@@ -6,6 +6,8 @@
 [[ -f "/opt/homebrew/bin/brew" ]] &&
   eval "$(/opt/homebrew/bin/brew shellenv)"
 
+
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
@@ -111,13 +113,14 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# typeset -U path
-
-export PATH="$PATH:/usr/local/rootlinegit"
+export EDITOR=nvim
 
 ## Rootline scripts
 [[ -d "$HOME/Development" ]] &&
   export PATH=$PATH:~/Development/bin:~/Development/rootline/bin/dev
+
+# Rootline git
+export PATH="$PATH:/usr/local/rootlinegit"
 
 # Zed
 [[ -d "/home/andrei/.local/zed.app/bin" ]] &&
@@ -134,8 +137,6 @@ export SDKMAN_DIR="$HOME/.sdkman"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "/home/linuxbrew/.linuxbrew/opt/nvm/nvm.sh" ] && \. "/home/linuxbrew/.linuxbrew/opt/nvm/nvm.sh"  # This loads nvm
-
-export EDITOR=nvim
 
 # Aliases
 alias ll="eza --icons --group-directories-first"
