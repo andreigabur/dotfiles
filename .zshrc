@@ -6,8 +6,6 @@
 [[ -f "/opt/homebrew/bin/brew" ]] &&
   eval "$(/opt/homebrew/bin/brew shellenv)"
 
-
-
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
@@ -114,17 +112,6 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 export EDITOR=nvim
-
-## Rootline scripts
-[[ -d "$HOME/Development" ]] &&
-  export PATH=$PATH:~/Development/bin:~/Development/rootline/bin/dev
-
-# Rootline git
-export PATH="$PATH:/usr/local/rootlinegit"
-
-# Zed
-[[ -d "/home/andrei/.local/zed.app/bin" ]] &&
-  export PATH=$PATH:/home/andrei/.local/zed.app/bin
 
 # Starship
 [[ $(command -v starship) ]] &&
