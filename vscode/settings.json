@@ -1,6 +1,6 @@
 {
-  "editor.fontSize": 13,
-  "editor.lineHeight": 21,
-  "terminal.integrated.fontSize": 13,
-  "editor.fontFamily": "BlexMono Nerd Font, Menlo, Monaco, monospace"
+    "editor.fontFamily": "BlexMono Nerd Font, Menlo, Monaco, monospace",
+    "editor.fontSize": 13,
+    "editor.lineHeight": 1.6,
+    "terminal.integrated.fontSize": 13
 }

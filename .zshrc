@@ -1,7 +1,3 @@
-# Load Homebrew on Linux
-[[ -f "/home/linuxbrew/.linuxbrew/bin/brew" ]] &&
-  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-
 # Load Homebrew on macOS
 [[ -f "/opt/homebrew/bin/brew" ]] &&
   eval "$(/opt/homebrew/bin/brew shellenv)"
@@ -117,13 +113,15 @@ export EDITOR=nvim
 [[ $(command -v starship) ]] &&
   eval "$(starship init zsh)"
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+export PATH="$HOME/go/bin:$PATH"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "/home/linuxbrew/.linuxbrew/opt/nvm/nvm.sh" ] && \. "/home/linuxbrew/.linuxbrew/opt/nvm/nvm.sh"  # This loads nvm
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 # Aliases
 alias ll="eza --icons --group-directories-first"
@@ -132,23 +130,6 @@ alias la="eza -all -long --icons --group-directories-first"
 alias fd="find . -type d | fzf"
 alias ff="fzf --preview=\"bat --color=always {}\""
 
-# Custom Zsh Completions for bazel
-# Automatically register the function to `bazel`
-_fzf_complete_bazel() {
-  local tokens
-  tokens=( ${(Q)${(z)BUFFER}} )
-  if [ ${#tokens} -ge 3 ] && [ "${tokens[2]}" = "test" ]; then
-    _fzf_complete '-m' "$@" < <(command bazel query --keep_going --noshow_progress "kind('java_test', //...) union kind('test_suite', //...)" 2> /dev/null)
-  elif [ ${#tokens} -ge 3 ] && [ "${tokens[2]}" = "run" ]; then
-    _fzf_complete '-m' "$@" < <(command bazel query --keep_going --noshow_progress "kind('(binary rule)', //...) union kind('k8s_object', //k8s/...)" 2> /dev/null)
-  else
-    _fzf_complete '-m' "$@" < <(command  bazel query --keep_going --noshow_progress "kind('java_library', //...)" 2> /dev/null)
-  fi
-}
 
-# Custom Zsh Completions for deploy.sh
-# Automatically register the function to `deploy.sh`
-_fzf_complete_deploy.sh() {
-  _fzf_complete '-m' "$@" < <(command bazel query --keep_going --noshow_progress "kind('k8s_object', deps(//k8s/...))" 2> /dev/null | grep local.apply | sed s/\\/local.apply//)
-}
-
+# Added by Antigravity
+export PATH="/Users/andrei/.antigravity/antigravity/bin:$PATH"
