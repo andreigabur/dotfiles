@@ -4,18 +4,14 @@ theme = One Dark Two
 
 # window-width = 120
 # window-height = 40
-
-window-padding-x = 8
-window-padding-y = 4
+# window-padding-x = 8
+# window-padding-y = 4
 
 # font-family = "BlexMono Nerd Font"
-
 font-size = 13
-
 # adjust-cell-height = 1
 
 # background-opacity = 0.9
-
 # term = xterm-256color
 
 # Keybindings
