@@ -49,10 +49,3 @@ ln -s ~/dotfiles/.config/kitty ~/.config/kitty
 ## Set zsh as default shell
 `chsh -s $(which zsh)`
 
-# Tips
-
-# Screenshots
-
-![screenshot kitty](./screenshots/kitty-bat.jpeg "Bat in Kitty")
-![wezterm lazygit](./screenshots/wezterm-lazygit.jpeg "Lazygit in Wezterm")
-![alacritty neovim](./screenshots/alacritty-nvim.jpeg "Neovim in alacritty")

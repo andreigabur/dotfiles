@@ -1,7 +1,3 @@
-# Load Homebrew on macOS
-[[ -f "/opt/homebrew/bin/brew" ]] &&
-  eval "$(/opt/homebrew/bin/brew shellenv)"
-
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
@@ -12,7 +8,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time Oh My Zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-# ZSH_THEME="robbyrussell"
+ZSH_THEME="robbyrussell"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -109,17 +105,11 @@ source $ZSH/oh-my-zsh.sh
 
 export EDITOR=nvim
 
-# Starship
-[[ $(command -v starship) ]] &&
-  eval "$(starship init zsh)"
-
 export PATH="$HOME/go/bin:$PATH"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-[ -s "/home/linuxbrew/.linuxbrew/opt/nvm/nvm.sh" ] && \. "/home/linuxbrew/.linuxbrew/opt/nvm/nvm.sh"  # This loads nvm
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
@@ -128,8 +118,6 @@ alias ll="eza --icons --group-directories-first"
 alias la="eza -all -long --icons --group-directories-first"
 
 alias fd="find . -type d | fzf"
-alias ff="fzf --preview=\"bat --color=always {}\""
+alias ff="fzf --preview=\"bat --color=always {}\" --bind \"enter:execute(nvim {})\""
 
-
-# Added by Antigravity
-export PATH="/Users/andrei/.antigravity/antigravity/bin:$PATH"
+source ~/.profile
