@@ -11,7 +11,7 @@ theme = One Dark Two
 font-size = 13
 # adjust-cell-height = 1
 
-# background-opacity = 0.9
+background-opacity = 0.98
 # term = xterm-256color
 
 # Keybindings
