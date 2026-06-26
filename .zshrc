@@ -113,6 +113,8 @@ export PATH="$HOME/go/bin:$PATH"
 
 [ -d "$HOME/.sdkman" ] && export SDKMAN_DIR="$HOME/.sdkman" && [ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ] && source "$SDKMAN_DIR/bin/sdkman-init.sh"
 
+[ -d "/opt/homebrew/share/google-cloud-sdk/bin" ] && export PATH="/opt/homebrew/share/google-cloud-sdk/bin":"$PATH"
+
 # Aliases
 alias ll="eza --icons --group-directories-first"
 alias la="eza -all -long --icons --group-directories-first"
