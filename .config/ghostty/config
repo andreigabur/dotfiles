@@ -1,6 +1,8 @@
 # window-theme = ghostty
 
-theme = One Dark Two
+# theme = Poimandres Storm
+# theme = One Dark Two
+theme = One Half Light
 
 # window-width = 120
 # window-height = 40
@@ -11,7 +13,7 @@ theme = One Dark Two
 font-size = 13
 # adjust-cell-height = 1
 
-background-opacity = 0.98
+# background-opacity = 0.98
 # term = xterm-256color
 
 # Keybindings
