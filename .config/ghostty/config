@@ -1,8 +1,9 @@
 # window-theme = ghostty
 
-# theme = Poimandres Storm
+# theme = Ghostty Default Style Dark
 # theme = One Dark Two
-theme = One Half Light
+theme = One Half Dark
+# theme = One Half Light
 
 # window-width = 120
 # window-height = 40
