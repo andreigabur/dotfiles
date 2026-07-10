@@ -9,9 +9,9 @@
 # Built-in themes: catppuccin, terminal, tokyo-night, dracula, nord,
 #                  gruvbox, one-dark, solarized, kanagawa, rose-pine,
 #                  vesper
-# name = "catppuccin"
-auto_switch = true
-light_name = "one-light"
+name = "catppuccin"
+# auto_switch = true
+light_name = "catppuccin-latte"
 dark_name = "one-dark"
 
 # Follow host terminal light/dark appearance and switch Herdr UI themes.

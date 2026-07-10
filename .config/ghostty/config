@@ -4,9 +4,9 @@
 # theme = One Dark Two
 # theme = One Half Dark
 # theme = One Half Light
-# theme = Catppuccin Mocha
+theme = Catppuccin Mocha
 # theme = Catppuccin Latte
-theme = light:One Half Light,dark:One Half Dark
+# theme = light:Catppuccin Latte,dark:Catppuccin Mocha
 
 # window-width = 120
 # window-height = 40
@@ -17,7 +17,7 @@ theme = light:One Half Light,dark:One Half Dark
 font-size = 13
 # adjust-cell-height = 1
 
-# background-opacity = 0.95
+background-opacity = 0.95
 # term = xterm-256color
 
 # Keybindings
