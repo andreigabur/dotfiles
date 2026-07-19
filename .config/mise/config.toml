@@ -1,0 +1,5 @@
+[tools]
+bun = "latest"
+go = "latest"
+node = "24"
+ruby = "3.4.5"

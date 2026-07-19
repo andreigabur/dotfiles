@@ -1,3 +1,4 @@
+onboarding = false
 # herdr configuration
 # Place this file at ~/.config/herdr/config.toml
 
@@ -12,7 +13,7 @@
 name = "catppuccin"
 # auto_switch = true
 light_name = "catppuccin-latte"
-dark_name = "one-dark"
+dark_name = "catppuccin"
 
 # Follow host terminal light/dark appearance and switch Herdr UI themes.
 # Existing manual behavior is unchanged unless this is true.

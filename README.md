@@ -37,13 +37,14 @@ rm ~/.zshrc
 ## Create symbolic links
 ```bash
 ln -s ~/dotfiles/.zshrc ~/.zshrc
+ln -s ~/dotfiles/.zprofile ~/.zprofile
 ln -s ~/dotfiles/.config/nvim ~/.config/nvim
 ln -s ~/dotfiles/.config/starship.toml ~/.config/starship.toml
-ln -s ~/dotfiles/vscode/settings.json ~/.config/Code/User/settings.json
 ln -s ~/dotfiles/.config/ghostty ~/.config/ghostty
 ln -s ~/dotfiles/.config/herdr/config.toml ~/.config/herdr/config.toml
+ln -s ~/dotfiles/.config/mise/config.toml ~/.config/mise/config.toml
+ln -s ~/dotfiles/vscode/settings.json ~/.config/Code/User/settings.json
 ```
 
 ## Set zsh as default shell
 `chsh -s $(which zsh)`
-
