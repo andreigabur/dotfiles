@@ -107,10 +107,6 @@ source $ZSH/oh-my-zsh.sh
 
 command -v mise >/dev/null && eval "$(mise activate zsh)"
 
-[ -d "$HOME/.nvm" ] && export NVM_DIR="$HOME/.nvm" && [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-
-[ -d "$HOME/.sdkman" ] && export SDKMAN_DIR="$HOME/.sdkman" && [ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ] && source "$SDKMAN_DIR/bin/sdkman-init.sh"
-
 # Aliases
 alias ll="eza --icons --group-directories-first"
 alias la="eza -all -long --icons --group-directories-first"
