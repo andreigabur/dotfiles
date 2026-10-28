@@ -1,12 +1,7 @@
 # window-theme = ghostty
 
 # theme = Ghostty Default Style Dark
-# theme = One Dark Two
-# theme = One Half Dark
-# theme = One Half Light
-theme = Catppuccin Mocha
-# theme = Catppuccin Latte
-# theme = light:Catppuccin Latte,dark:Catppuccin Mocha
+theme = One Half Light
 
 # window-width = 120
 # window-height = 40
@@ -17,7 +12,7 @@ theme = Catppuccin Mocha
 font-size = 13
 # adjust-cell-height = 1
 
-background-opacity = 0.95
+# background-opacity = 0.95
 # term = xterm-256color
 
 # Keybindings
