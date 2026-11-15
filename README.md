@@ -44,6 +44,10 @@ ln -s ~/dotfiles/.config/ghostty ~/.config/ghostty
 ln -s ~/dotfiles/.config/herdr/config.toml ~/.config/herdr/config.toml
 ln -s ~/dotfiles/.config/mise/config.toml ~/.config/mise/config.toml
 ln -s ~/dotfiles/vscode/settings.json ~/.config/Code/User/settings.json
+ln -s ~/dotfiles/.config/herdr-app/layouts/Personal.json ~/.config/herdr-app/layouts/Personal.json
+ln -s ~/dotfiles/.config/herdr-app/mods/personal-tabs ~/.config/herdr-app/mods/personal-tabs
+# skilldock: clone github.com/andreigabur/skilldock to ~/Projects/skilldock first
+ln -s ~/Projects/skilldock/herdr/mods/skilldock ~/.config/herdr-app/mods/skilldock
 ```
 
 ## Set zsh as default shell
